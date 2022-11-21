@@ -1,8 +1,13 @@
 <template>
-  <div id="div1"></div>
+  <div id="main">
+    <div id="h1">
   <h1> Movies </h1>
-    <label for="Movies">Select Movies here:</label>
+  </div>
+  <div id="label">
+  <label for="Movies">Select Movies here:</label>
+  </div>
     <div id="div1"></div>
+    <div id="Movies">
     <select name="Movies" id="Movies" @change="onChange()">
     <option value="384018">Fast and Furious 9</option> 
     <option value="497698">Black Widow</option>
@@ -15,16 +20,11 @@
     <option value="284054">Black Panther</option>
     <option value="864">Cool Runnings</option>   
     </select>
+    </div>
+    <div id="get">
     <button id=get @click="getResult()">Get</button>
-
-    <div>Selected: {{ selected }}</div>
-
-<select v-model="selected">
-  <option disabled value="">Please select one</option>
-  <option>A</option>
-  <option>B</option>
-  <option>C</option>
-</select>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -155,208 +155,207 @@ const movieData = await getData(`https://api.themoviedb.org/3/movie/${output}`, 
 </script>
 
 <style scoped>
-template {
-    background-color: #44276a;
-    background-image: url(https://images.pexels.com/photos/7605490/pexels-photo-7605490.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
-    background-size: cover;
-    background-repeat: no-repeat;
-    max-width: 1280px;
-    max-height: 1024px;
+#main {
+  background-color: #44276a;
+  background-image: url(https://images.pexels.com/photos/7605490/pexels-photo-7605490.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 1280px;
+  max-height: 1024px;
 }
 
 p {
-    font-family: 'Montserrat', sans-serif;
-    color: #F1EEE9;
-    text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  color: #F1EEE9;
+  text-align: right;
 }
 
-template > h1 {
-    color: #F1EEE9;
-    font-family: 'Merriweather', serif;
-    font-size: 100px;
-    text-align: center;
-    padding-left: 8rem;
-    padding-bottom: 1rem;
+#main > #h1 {
+  color: #F1EEE9;
+  font-family: 'Merriweather', serif;
+  font-size: 100px;
+  text-align: center;
+  padding-left: 8rem;
+  padding-bottom: 1rem;
 }
 
-template> label {
-    display: flex;
-    color: #F1EEE9;
-    font-family: 'Merriweather', serif;
-    font-size: 30px;
-    text-align: center; 
-    justify-content: center;
-    position: relative;
-    left: 35rem;
+#main > #label {
+  display: flex;
+  color: #F1EEE9;
+  font-family: 'Merriweather', serif;
+  font-size: 30px;
+  text-align: center; 
+  justify-content: center;
+  position: relative;
+  left: 35rem;
 }
 
-template > label, input, #Movies {
-    display: inline;
+#main > #label, #get, #Movies {
+  display: inline;
 }
 
 
-input, #Movies {
-    display: flex;
-    font-family: 'Merriweather', serif;
-    font-size: 25px;
-    text-align: center; 
-    justify-content: center;
-    background-color: #F1EEE9;
-    position: absolute;
-    left: 30rem;
-    bottom: 530px;
+#get, #Movies {
+  display: flex;
+  font-family: 'Merriweather', serif;
+  font-size: 25px;
+  text-align: center; 
+  justify-content: center;
+  background-color: #F1EEE9;
+  position: absolute;
+  left: 30rem;
+  bottom: 530px;
 }
 
-input {
-    position: absolute;
+#get {
+  position: absolute;
 }
 
 #overview {
-    text-align: left;
-    align-items: right;
-    justify-content: right;
-    gap: 1rem;
-    overflow-wrap: break-word;
-    margin-left: 45%;
-    padding-top: 11.5em;
-    float: right;   
+  text-align: left;
+  align-items: right;
+  justify-content: right;
+  gap: 1rem;
+  overflow-wrap: break-word;
+  margin-left: 45%;
+  padding-top: 11.5em;
+  float: right;   
 }
 
 #tagline {
-    text-align: left;
-    align-items: top;
-    justify-content: left;
-    float: left;
-    color: #F1EEE9;
-    margin-left: 1em;
-    position: absolute;
-    bottom: 445px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: lighter;
+  text-align: left;
+  align-items: top;
+  justify-content: left;
+  float: left;
+  color: #F1EEE9;
+  margin-left: 1em;
+  position: absolute;
+  bottom: 445px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: lighter;
 }
 
 
 
 * {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 #release_date {
-    display:flex;
-    position: absolute;
-    margin-top: 15em;
-    display: inline-block;
-    white-space: nowrap;
-    margin-left: 1em;
-    margin-bottom: -7.5em; 
+  display:flex;
+  position: absolute;
+  margin-top: 15em;
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: 1em;
+  margin-bottom: -7.5em; 
 }
 
 #img {
-    border-radius: 10px;
-    display:flex;
-    margin-top: 12em;
-    margin-left: 1rem;
-    position: absolute;
+  border-radius: 10px;
+  display:flex;
+  margin-top: 12em;
+  margin-left: 1rem;
+  position: absolute;
 }
 
 #movietitle {
-    font-size: 40px;
-    position: absolute;
-    top: 15rem;
-    margin-left: 1rem;
-    color: #F1EEE9;
-    padding-bottom: 10px;
-    text-transform: Uppercase;
+  font-size: 40px;
+  position: absolute;
+  top: 15rem;
+  margin-left: 1rem;
+  color: #F1EEE9;
+  padding-bottom: 10px;
+  text-transform: Uppercase;
 }
 
 #genres {
-    display: flex;
-    text-align: right;
-    display: inline-flex;
-    font-size: 15px;
-    text-align: left;
-    float: right;
-    position: absolute;
-    margin-top:26em;
-    margin-left: 38.5%;
+  display: flex;
+  text-align: right;
+  display: inline-flex;
+  font-size: 15px;
+  text-align: left;
+  float: right;
+  position: absolute;
+  margin-top:26em;
+  margin-left: 38.5%;
 
 
 }
 
 #revenue {
-    font-size: 15px;
-    position: relative;
-    padding-top: 30.5%;
-    padding-right: 1em;
+  font-size: 15px;
+  position: relative;
+  padding-top: 30.5%;
+  padding-right: 1em;
 
 }
 
 #runtime {
-    display:flex;
-    position: absolute;
-    margin-top: 15em;
-    display: inline-block;
-    margin-left: 26em; 
-    margin-bottom: -7.5em; 
+  display:flex;
+  position: absolute;
+  margin-top: 15em;
+  display: inline-block;
+  margin-left: 26em; 
+  margin-bottom: -7.5em; 
 }
 
 #vote_count, #vote_average, #popularity {
-    display: inline;
-    display: inline-block;
-    align-content: right;
-    justify-content: right;
-    position: relative; top: 40px;
-    line-height: 12px;
-    white-space: nowrap;
-    text-align: center;
-    color:#F1EEE9;
+  display: inline;
+  display: inline-block;
+  align-content: right;
+  justify-content: right;
+  position: relative; top: 40px;
+  line-height: 12px;
+  white-space: nowrap;
+  text-align: center;
+  color:#F1EEE9;
 }
 
 #vote_count {
-    padding: 5px;
-    margin: 0px;
-    background-color: #d38806;
-    border-radius: 1em;
-    border-spacing: 1em;
-    position: relative; left: 590px;
+  padding: 5px;
+  margin: 0px;
+  background-color: #d38806;
+  border-radius: 1em;
+  border-spacing: 1em;
+  position: relative; left: 590px;
 
 }
 
 #vote_count:hover {
-    background-color: gray;
+  background-color: gray;
 }
 
 #vote_average {
-    padding: 5px;
-    margin: 0px;
-    background-color: #d38806;
-    border-radius: 1em;
-    border-spacing: 1em;
-    position: relative; left: 580px;
+  padding: 5px;
+  margin: 0px;
+  background-color: #d38806;
+  border-radius: 1em;
+  border-spacing: 1em;
+  position: relative; left: 580px;
 
 }
 
 #vote_average:hover {
-    background-color: gray;
+  background-color: gray;
 }
 
 #popularity {
-    padding: 5px;
-    margin: 0px;
-    background-color: #d38806;
-    border-radius: 1em;
-    border-spacing: 1em;
-    position: relative; left: 570px;
+  padding: 5px;
+  margin: 0px;
+  background-color: #d38806;
+  border-radius: 1em;
+  border-spacing: 1em;
+  position: relative; left: 570px;
 
 }
 
 #popularity:hover {
-    background-color: gray;
+  background-color: gray;
 }
 
 #release_date, #runtime {
-    bottom: 510px;
+  bottom: 510px;
 }
-
 </style>
