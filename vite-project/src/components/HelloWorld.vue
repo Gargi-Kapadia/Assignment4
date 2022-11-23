@@ -7,8 +7,7 @@
   <label for="Movies">Select Movies here:</label>
   </div>
     <div id="div1"></div>
-    <div id="Movies">
-    <select name="Movies" id="Movies" @change="onChange()">
+    <select name="Movies" id="Movies" v-model="Movies">
     <option value="384018">Fast and Furious 9</option> 
     <option value="497698">Black Widow</option>
     <option value="634649">Spider-Man: No Way Home</option>
@@ -20,10 +19,7 @@
     <option value="284054">Black Panther</option>
     <option value="864">Cool Runnings</option>   
     </select>
-    </div>
-    <div id="get">
-    <button id=get @click="getResult()">Get</button>
-    </div>
+    <button id=get @click="getMovies()">Get</button>
   </div>
 </template>
 
@@ -31,27 +27,25 @@
 import { ref } from "vue";
 import axios from "axios"
 
-let output = ref("")
+const Movies = ref("");
+const response = ref(null);
 
+const getMovies = async () => {
+console.log(Movies.value)
+const movieData = await getData(`https://api.themoviedb.org/3/movie/${Movies.value}`, {
+  params: {
+    api_key: "354ab13223b58e3243b70a0085da1b2e",
+  } 
+});
+  callMovies(movieData.data);
+
+}
 const getData = async (url, params) => {
   try {
     return await axios.get(url, params);
   } catch (error) {
     console.log(error)
   }
-};
-const onChange = () => {
-  output.value = event.target.value;
-  console.log(output.value);
-}
-
-
-const getResult = async () => {
-  //selectElement = document.querySelector('#Movies');
-    //output = onChange(_event);
-    const moveData = await getMovies(output.value);
-    console.log(moveData)
-    callMovies(moveData)
 };
 
 function callMovies(movieData) {
@@ -126,16 +120,6 @@ function genre(genresArray) {
 };
 
 
-const getMovies = async (output) => {
-console.log(output)
-const movieData = await getData(`https://api.themoviedb.org/3/movie/${output}`, {
-  params: {
-    api_key: "354ab13223b58e3243b70a0085da1b2e",
-  } 
-});
-  return movieData.data;
-
-}
 
    const genres = {
     28: 'Action',
