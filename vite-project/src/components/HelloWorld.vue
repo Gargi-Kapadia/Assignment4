@@ -51,7 +51,7 @@ const getData = async (url, params) => {
       <p id="vote_count">Vote Count: <br>{{ response.vote_count }}</p>
       <p id="vote_average">Vote Average: <br>{{ response.vote_average }}</p>
       <p id="popularity">Popularity: <br>{{ response.popularity }}</p>
-      <p id="revenue">Revenue: {{ response.revenue }}</p>
+      <p id="revenue">Revenue: $ {{ response.revenue }}</p>
       <img v-bind:src="'https://image.tmdb.org/t/p/w500' + response.poster_path" /> 
     <div v-for="genre in response.genres">
       <p>{{ genre.name }}</p>
@@ -61,41 +61,36 @@ const getData = async (url, params) => {
 </template>
  
 <style>
-#div1 {
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0px;
-  padding: 0px;
-  width:1280px ;
-  height: 1024px;
-}
 p {
   font-family: 'Montserrat', sans-serif;
   color: #F1EEE9;
   text-align: right;
-}
+ }
+
 #div1 > #movies {
-  color: #F1EEE9;
-  font-family: 'Merriweather', serif;
-  font-size: 100px;
-  text-align: center;
-  padding-right: 7rem;
-  padding-bottom: 1rem;
+    color: #F1EEE9;
+    font-family: 'Merriweather', serif;
+    font-size: 100px;
+    text-align: center;
+    padding-left: 8rem;
+    padding-bottom: 1rem;
 }
 #div1 > #label {
-  display: flex;
-  color: #F1EEE9;
-  font-family: 'Merriweather', serif;
-  font-size: 30px;
-  text-align: center;
-  justify-content: center;
-  position: relative;
-  left: 29rem;
-top: -1.5rem;
+    display: flex;
+    color: #F1EEE9;
+    font-family: 'Merriweather', serif;
+    font-size: 30px;
+    text-align: center; 
+    justify-content: center;
+    position: relative;
+    left: 35rem;
+    bottom: 20px;
 }
+
 #div1 > #label, #get, #Movies {
-  display: inline;
+    display: inline;
 }
+
 #get, #Movies {
   display: flex;
   font-family: 'Merriweather', serif;
@@ -104,8 +99,8 @@ top: -1.5rem;
   justify-content: center;
   background-color: #F1EEE9;
   position: absolute;
-  left: 25rem;
-  bottom: 580px;
+  left: 30rem;
+  bottom: 550px;
 }
 #get {
   position: absolute;
@@ -225,6 +220,6 @@ v-for {
   position: relative; left: 590px;
 }
 #release_date, #runtime {
-  bottom: 510px;
-}
+  bottom: 540px;
+} 
 </style>

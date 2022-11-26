@@ -1,3 +1,12 @@
+body {
+    background-color: #44276a;
+    background-image: url(https://images.pexels.com/photos/7605490/pexels-photo-7605490.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 1280px;
+    max-height: 1024px;
+}
+
 
 
 
